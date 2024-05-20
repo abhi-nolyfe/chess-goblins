@@ -1,4 +1,4 @@
-module github.com/abhi-nolyfe/Chess-goblins
+module github.com/abhi-nolyfe/chess-goblins
 
 go 1.21.6
 
