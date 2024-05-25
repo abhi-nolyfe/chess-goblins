@@ -1,22 +1,27 @@
 package main
 
 import (
-	"fmt"
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/joho/godotenv"
 )
 
 func main () {
-	fmt.Println("hellow world")
-
 	godotenv.Load(".env")
-	
 	portString := os.Getenv("PORT")
+
+	mux := http.NewServeMux()
+
+	srv := &http.Server{
+		Addr:    ":" + portString,
+		Handler: mux,
+	}
 
 	if portString == "" {
 		log.Fatal("PORT is not found in the environment.")
 	}
-	fmt.Println("PORT:", portString)
+	log.Printf("Serving on port: %s\n", portString)
+	log.Fatal(srv.ListenAndServe())
 }
