@@ -4,4 +4,4 @@ dev:
 
 .PHONY: templ-watch
 templ-watch:
-	templ generate --watch --proxy=http://localhost:8080
+	templ generate --watch --proxy=http://localhost:8080 --open-browser=false
